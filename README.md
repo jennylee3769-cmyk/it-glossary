@@ -5,7 +5,10 @@
 ## 파일
 
 - `it-glossary.html`: 본문, 디자인, 검색, 체크리스트, 인쇄 기능이 포함된 단일 HTML
+- `index.html`: Vercel 루트 주소용 동일 내용 복사본(원본 `it-glossary.html` 보존)
 - `vercel.json`: Vercel 루트 주소를 안내 페이지로 연결하는 설정
+- `WORK_HISTORY.md`: 제작·GitHub·배포 작업 기록
+- `VERIFICATION_REPORT.md`: 로컬·공개 페이지 검증 기록
 
 ## 로컬 미리보기
 
