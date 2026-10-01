@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>웹사이트 제작과 배포 IT 용어 가이드</title>
+  <meta name="description" content="시니어와 웹 초보자를 위한 웹사이트 제작·배포 IT 용어 안내서. 정확한 뜻, 쉬운 비유, 강의 사이트 적용 예시로 25개 핵심 용어와 5개 배포 플랫폼을 설명합니다.">
+  <meta property="og:title" content="웹사이트 제작과 배포 · IT 용어 가이드">
+  <meta property="og:description" content="코드 보관부터 배포와 운영까지, 낯선 IT 용어를 정확한 뜻 → 쉬운 비유 → 강의 사이트 적용 순서로 이해합니다.">
+  <meta property="og:type" content="website">
+  <style>
+    :root{--ink:#111827;--muted:#4b5563;--line:#d8dee8;--soft:#f3f5f8;--paper:#fff;--blue:#1d4ed8;--blue-soft:#eaf0ff;--max:1180px;--radius:18px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{margin:0;color:var(--ink);background:var(--paper);font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;font-size:18px;line-height:1.75;overflow-wrap:anywhere}
+    a{color:var(--blue);text-underline-offset:.2em}
+    button,input{font:inherit}
+    button,a{touch-action:manipulation}
+    :focus-visible{outline:3px solid #60a5fa;outline-offset:3px;border-radius:6px}
+    .skip{position:absolute;left:-9999px;top:8px;z-index:1000;background:#fff;padding:.7rem 1rem;border:2px solid var(--blue)}
+    .skip:focus{left:12px}
+    .wrap{width:min(calc(100% - 40px),var(--max));margin-inline:auto}
+    .site-head{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+    .head-row{min-height:70px;display:flex;align-items:center;gap:24px}
+    .brand{font-size:16px;font-weight:900;color:var(--ink);text-decoration:none;white-space:nowrap}
+    .nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin;margin-left:auto;padding:8px 2px}
+    .nav a{color:#374151;text-decoration:none;font-size:15px;font-weight:700;padding:8px 10px;border-radius:8px;white-space:nowrap}
+    .nav a:hover{background:var(--soft);color:var(--blue)}
+    .print-btn,.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:10px;padding:12px 17px;font-weight:800;text-decoration:none;cursor:pointer}
+    .print-btn{background:var(--ink);color:#fff;white-space:nowrap;font-size:15px}
+    .button.primary{background:var(--blue);color:#fff}.button.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}
+    .hero{padding:86px 0 72px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#f7f9ff 0,#fff 82%)}
+    .eyebrow{margin:0 0 18px;color:var(--blue);font-weight:900;letter-spacing:-.01em}
+    h1{margin:0;max-width:900px;font-size:clamp(46px,8vw,92px);line-height:1.02;letter-spacing:-.055em}
+    h1 span{display:block;margin-top:14px;color:var(--blue);font-size:.48em;letter-spacing:-.035em}
+    .lead{max-width:860px;margin:30px 0 0;color:#374151;font-size:clamp(19px,2.3vw,25px);line-height:1.65}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+    .counts{display:grid;grid-template-columns:repeat(3,1fr);max-width:780px;margin:48px 0 0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff}
+    .count{padding:20px 24px;border-right:1px solid var(--line)}.count:last-child{border:0}
+    .count strong{display:block;font-size:34px;line-height:1.1;color:var(--blue)}.count span{font-size:15px;color:var(--muted);font-weight:700}
+    main section{padding:86px 0;border-bottom:1px solid var(--line)}
+    .section-head{display:grid;grid-template-columns:minmax(220px,.65fr) 1.35fr;gap:48px;align-items:start;margin-bottom:38px}
+    .kicker{margin:0 0 8px;font-size:14px;font-weight:900;color:var(--blue);letter-spacing:.08em;text-transform:uppercase}
+    h2{margin:0;font-size:clamp(34px,5vw,56px);line-height:1.12;letter-spacing:-.04em}
+    .section-intro{margin:4px 0 0;color:var(--muted);font-size:20px;max-width:720px}
+    .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;counter-reset:step}
+    .flow-card{position:relative;padding:24px 20px;background:var(--soft);border-top:4px solid var(--ink);min-height:210px}
+    .flow-card::before{counter-increment:step;content:"0" counter(step);display:block;color:var(--blue);font-size:14px;font-weight:900;margin-bottom:30px}
+    .flow-card h3{margin:0 0 8px;font-size:24px}.flow-card p{margin:0;font-size:16px;color:var(--muted);line-height:1.6}
+    .warning{margin-top:22px;border:2px solid var(--blue);border-radius:14px;padding:20px 24px;background:var(--blue-soft);font-weight:800}
+    .warning strong{color:var(--blue)}
+    .search-panel{position:sticky;top:69px;z-index:10;padding:18px 0;background:rgba(255,255,255,.96);border-block:1px solid var(--line)}
+    .search-row{display:flex;gap:12px;align-items:center}.search-label{font-weight:900;white-space:nowrap}
+    .search-input{width:100%;border:1px solid #aeb8c6;border-radius:10px;padding:13px 16px;color:var(--ink);background:#fff}
+    .search-meta{min-width:90px;text-align:right;color:var(--muted);font-size:15px;font-weight:700}
+    .term-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .term-card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:0 8px 30px rgba(17,24,39,.04)}
+    .term-title{padding:22px 24px 17px;border-bottom:1px solid var(--line)}
+    .term-title h3{margin:0;font-size:25px;line-height:1.3;letter-spacing:-.02em}.term-title .en{display:block;color:var(--muted);font-size:14px;margin-top:4px;font-weight:700}
+    .term-parts{display:grid;grid-template-columns:1fr}
+    .term-part{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:17px 24px;border-bottom:1px solid #e7eaf0}.term-part:last-child{border:0}
+    .term-part b{font-size:14px;color:#374151}.term-part p{margin:0;font-size:16px;line-height:1.65;color:#374151}
+    .term-part.analogy{background:#f8fafc}.term-part.example{background:var(--blue-soft)}.term-part.example b{color:var(--blue)}
+    .no-results{display:none;margin:28px 0 0;padding:32px;border:1px dashed #9ca3af;border-radius:14px;text-align:center;background:var(--soft)}
+    .platform-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+    .platform{display:flex;flex-direction:column;padding:22px;border:1px solid var(--line);border-radius:14px;background:#fff}
+    .platform h3{margin:0 0 10px;font-size:23px}.platform p{margin:0 0 20px;font-size:16px;color:var(--muted);line-height:1.6}.platform .links{margin-top:auto;display:grid;gap:6px;font-size:15px;font-weight:800}
+    .practice-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .check-card{padding:26px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}.check-card h3{margin:0 0 18px;font-size:25px}
+    .check-list{list-style:none;padding:0;margin:0;display:grid;gap:4px;counter-reset:item}
+    .check-list label{display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:start;padding:12px 8px;border-radius:8px;cursor:pointer;font-size:16px}.check-list label:hover{background:var(--soft)}
+    .check-list input{width:21px;height:21px;margin:3px 0 0;accent-color:var(--blue)}.check-list input:checked+span{text-decoration:line-through;color:#6b7280}
+    .source-note{padding:22px 24px;border-left:5px solid var(--blue);background:var(--blue-soft);margin-bottom:22px}
+    .source-note h3{margin:0 0 6px;font-size:21px}.source-note p{margin:0;color:#334155}
+    .source-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.source-box{padding:24px;border:1px solid var(--line);border-radius:14px}.source-box h3{margin:0 0 12px}.source-box ul{margin:0;padding-left:1.2em}.source-box li+li{margin-top:8px}
+    .footer{padding:34px 0 80px;color:var(--muted);font-size:14px}.footer p{margin:0}
+    .top-btn{position:fixed;right:22px;bottom:22px;width:50px;height:50px;border:0;border-radius:50%;background:var(--ink);color:#fff;font-size:20px;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.18);opacity:0;pointer-events:none;transform:translateY(10px);transition:.2s}
+    .top-btn.show{opacity:1;pointer-events:auto;transform:none}
+    .origin-case{display:inline-block;margin-top:8px;padding:3px 8px;border-radius:5px;background:#e5e7eb;color:#374151;font-size:13px;font-weight:800}
+    [hidden]{display:none!important}
+    @media(max-width:900px){.head-row{align-items:stretch;flex-wrap:wrap;padding:10px 0}.brand{align-self:center}.nav{order:3;width:100%;margin:0}.print-btn{margin-left:auto}.section-head{grid-template-columns:1fr;gap:18px}.flow{grid-template-columns:repeat(2,1fr)}.platform-grid{grid-template-columns:repeat(2,1fr)}.search-panel{top:0}.hero{padding-top:60px}}
+    @media(max-width:640px){body{font-size:17px}.wrap{width:min(calc(100% - 28px),var(--max))}.site-head{position:relative}.print-btn{display:none}.hero{padding:50px 0}.counts{grid-template-columns:1fr}.count{border-right:0;border-bottom:1px solid var(--line)}.count:last-child{border-bottom:0}main section{padding:64px 0}.flow,.term-grid,.platform-grid,.practice-grid,.source-grid{grid-template-columns:1fr}.flow-card{min-height:0}.search-row{display:grid;grid-template-columns:1fr}.search-label{font-size:15px}.search-meta{text-align:left}.term-part{grid-template-columns:1fr;gap:3px;padding:15px 18px}.term-title{padding:19px 18px}.section-intro{font-size:18px}.top-btn{right:14px;bottom:14px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.top-btn{transition:none}}
+    @media print{
+      @page{size:auto;margin:15mm}
+      body{font-size:11pt;color:#000;background:#fff}.site-head,.hero-actions,.search-panel,.top-btn{display:none!important}.hero{padding:0 0 14mm;background:#fff}.wrap{width:100%;max-width:none}main section{padding:12mm 0;border-color:#999;break-before:auto}h1{font-size:38pt}h2{font-size:25pt}.lead{font-size:14pt}.section-head{display:block;margin-bottom:8mm}.flow{grid-template-columns:repeat(5,1fr)}.flow-card{min-height:0;padding:10px;break-inside:avoid}.flow-card::before{margin-bottom:8px}.term-grid{grid-template-columns:1fr 1fr;gap:8px}.term-card,.platform,.check-card,.source-box{box-shadow:none;break-inside:avoid}.term-title{padding:10px 12px}.term-part{padding:8px 12px;grid-template-columns:72px 1fr}.term-part p,.platform p,.check-list label{font-size:9.5pt}.platform-grid{grid-template-columns:repeat(5,1fr)}.platform{padding:10px}.platform .links{display:none}.practice-grid,.source-grid{grid-template-columns:1fr 1fr}.footer{padding:10mm 0}a{color:#000;text-decoration:none}a[href^="http"]::after{content:" (" attr(href) ")";font-size:8pt;word-break:break-all}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">본문 바로가기</a>
+  <header class="site-head">
+    <div class="wrap head-row">
+      <a class="brand" href="#top" aria-label="IT 용어 가이드 맨 위로">IT 용어 가이드</a>
+      <nav class="nav" aria-label="주요 영역">
+        <a href="#flow">제작 흐름</a><a href="#basic">기본 용어</a><a href="#making">만들기·수정</a><a href="#operation">연결·운영</a><a href="#platforms">배포 플랫폼</a><a href="#practice">실습 적용</a><a href="#sources">원문·참고</a>
+      </nav>
+      <button class="print-btn" type="button" id="printButton">인쇄 / PDF로 저장</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap">
+        <p class="eyebrow">처음 만드는 강의 사이트 · 실습 옆에 두는 안내서</p>
+        <h1>웹사이트 제작과 배포<span>IT 용어 가이드</span></h1>
+        <p class="lead">코드를 보관하고 인터넷에 공개하는 과정부터 회원과 데이터를 관리하는 방법까지. 낯선 용어를 <strong>‘정확한 뜻 → 쉬운 비유 → 내 강의 사이트’</strong> 순서로 이해하는 안내서</p>
+        <div class="hero-actions"><a class="button primary" href="#flow">제작 흐름 보기</a><a class="button secondary" href="#basic">용어 살펴보기</a></div>
+        <div class="counts" aria-label="자료 구성"><div class="count"><strong>9</strong><span>기본 용어</span></div><div class="count"><strong>16</strong><span>실습 보완 용어</span></div><div class="count"><strong>5</strong><span>배포 플랫폼</span></div></div>
+      </div>
+    </section>
+
+    <section id="flow">
+      <div class="wrap">
+        <div class="section-head"><div><p class="kicker">01 · Process</p><h2>사이트가 세상에 나오는 순서</h2></div><p class="section-intro">내 컴퓨터에서 고친 파일이 곧바로 인터넷에 보이는 것은 아닙니다. 저장하고, 변경 기록을 남기고, 원격 저장소로 보내고, 배포해야 방문자가 새 화면을 볼 수 있습니다.</p></div>
+        <div class="flow">
+          <article class="flow-card"><h3>코드 작성</h3><p>HTML·CSS·JavaScript 파일을 만들거나 고칩니다. 아직은 주로 내 컴퓨터 안의 작업입니다.</p></article>
+          <article class="flow-card"><h3>커밋</h3><p>어떤 파일을 왜 바꿨는지 한 묶음의 변경 기록으로 저장합니다.</p></article>
+          <article class="flow-card"><h3>푸시</h3><p>내 컴퓨터의 커밋을 GitHub 같은 원격 저장소로 올립니다.</p></article>
+          <article class="flow-card"><h3>배포</h3><p>저장소의 코드를 방문자가 접속할 수 있는 웹사이트로 공개합니다.</p></article>
+          <article class="flow-card"><h3>운영</h3><p>주소·보안·내용·접속 상태를 살피며 사이트를 계속 관리합니다.</p></article>
+        </div>
+        <div class="warning" role="note"><strong>꼭 기억하기:</strong> 커밋은 변경 기록을 남기는 일입니다. 커밋만 해서는 공개 사이트가 바뀌지 않습니다. 보통 <strong>푸시와 배포</strong>까지 완료되어야 합니다.</div>
+      </div>
+    </section>
+
+    <div class="search-panel" id="searchPanel">
+      <div class="wrap search-row"><label class="search-label" for="termSearch">용어 검색</label><input class="search-input" id="termSearch" type="search" placeholder="예: 배포, API, 주소, 로그인" autocomplete="off"><span class="search-meta" id="searchMeta" aria-live="polite">25개 표시</span></div>
+    </div>
+
+    <section id="basic" class="term-section">
+      <div class="wrap"><div class="section-head"><div><p class="kicker">02 · Foundation</p><h2>기본 용어 9개</h2></div><p class="section-intro">코드를 보관하고 공개하는 흐름을 이해할 때 가장 먼저 만나는 말입니다.</p></div><div class="term-grid" data-category="basic"></div></div>
+    </section>
+    <section id="making" class="term-section">
+      <div class="wrap"><div class="section-head"><div><p class="kicker">03 · Build & Change</p><h2>만들기와 수정 용어 7개</h2></div><p class="section-intro">페이지의 뼈대·모양·동작을 만들고, 안전하게 복사하고 합치는 데 필요한 말입니다.</p></div><div class="term-grid" data-category="making"></div></div>
+    </section>
+    <section id="operation" class="term-section">
+      <div class="wrap"><div class="section-head"><div><p class="kicker">04 · Connect & Run</p><h2>연결과 운영 용어 9개</h2></div><p class="section-intro">주소를 연결하고, 데이터를 주고받고, 이용자별 접근을 관리할 때 만나는 말입니다.</p></div><div class="term-grid" data-category="operation"></div><div class="no-results" id="noResults" role="status"><strong>검색 결과가 없습니다.</strong><br>낱말을 줄이거나 한글·영어 표현을 바꾸어 검색해 보세요.</div></div>
+    </section>
+
+    <section id="platforms">
+      <div class="wrap">
+        <div class="section-head"><div><p class="kicker">05 · Platforms</p><h2>배포 플랫폼 5개</h2></div><p class="section-intro">플랫폼마다 잘하는 일이 다릅니다. 가격이나 무료 한도는 바뀔 수 있으므로 여기서는 역할만 설명하고, 선택 전 공식 문서를 확인합니다.</p></div>
+        <div class="platform-grid">
+          <article class="platform"><h3>Vercel</h3><p>Git 저장소와 연결해 웹 프로젝트를 빌드하고 배포하며, 변경 내용을 미리 확인하는 주소도 제공하는 플랫폼입니다.</p><div class="links"><a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">공식 사이트 ↗</a><a href="https://vercel.com/docs" target="_blank" rel="noopener noreferrer">공식 문서 ↗</a></div></article>
+          <article class="platform"><h3>Netlify</h3><p>정적 사이트와 웹 앱을 Git 저장소 또는 파일 업로드 방식으로 배포하고 운영할 수 있는 플랫폼입니다.</p><div class="links"><a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">공식 사이트 ↗</a><a href="https://docs.netlify.com/" target="_blank" rel="noopener noreferrer">공식 문서 ↗</a></div></article>
+          <article class="platform"><h3>GitHub Pages</h3><p>GitHub 저장소의 HTML·CSS·JavaScript 같은 정적 파일을 웹사이트로 공개하는 기능입니다.</p><div class="links"><a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">공식 사이트 ↗</a><a href="https://docs.github.com/pages" target="_blank" rel="noopener noreferrer">공식 문서 ↗</a></div></article>
+          <article class="platform"><h3>Firebase</h3><p>Google이 제공하는 앱 개발 서비스 모음입니다. Hosting으로 웹 콘텐츠를 배포하고, 필요에 따라 인증·데이터베이스 등과 연결할 수 있습니다.</p><div class="links"><a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer">공식 사이트 ↗</a><a href="https://firebase.google.com/docs/hosting" target="_blank" rel="noopener noreferrer">Hosting 문서 ↗</a></div></article>
+          <article class="platform"><h3>Cloudflare</h3><p>DNS·보안·콘텐츠 전송 서비스를 제공하며, Pages로 정적 사이트와 프론트엔드 프로젝트를 배포할 수 있습니다.</p><div class="links"><a href="https://www.cloudflare.com/" target="_blank" rel="noopener noreferrer">공식 사이트 ↗</a><a href="https://developers.cloudflare.com/pages/" target="_blank" rel="noopener noreferrer">Pages 문서 ↗</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="practice">
+      <div class="wrap">
+        <div class="section-head"><div><p class="kicker">06 · Practice</p><h2>실습에 바로 적용하기</h2></div><p class="section-intro">한 단계씩 확인하고 체크하세요. 체크 상태는 이 브라우저에 저장되어 다음에 다시 열어도 이어서 볼 수 있습니다.</p></div>
+        <div class="practice-grid">
+          <article class="check-card"><h3>기존 강좌를 복사해 새 강좌 만들기</h3><div class="check-list" data-checklist="copy">
+            <label><input type="checkbox"><span>원본 강좌 폴더와 저장소 주소를 확인한다.</span></label><label><input type="checkbox"><span>원본을 지우지 않고 새 이름의 폴더나 저장소로 복제한다.</span></label><label><input type="checkbox"><span>새 강좌의 제목·설명·링크·이미지를 찾아 바꾼다.</span></label><label><input type="checkbox"><span>내 컴퓨터의 로컬 서버에서 메뉴와 주요 기능을 확인한다.</span></label><label><input type="checkbox"><span>변경 내용을 커밋하고 올바른 원격 저장소로 푸시한다.</span></label><label><input type="checkbox"><span>새 배포 프로젝트와 연결하고 공개 주소에서 다시 확인한다.</span></label>
+          </div></article>
+          <article class="check-card"><h3>수정했는데 사이트가 그대로일 때</h3><div class="check-list" data-checklist="trouble">
+            <label><input type="checkbox"><span>수정한 파일을 저장했는지 확인한다.</span></label><label><input type="checkbox"><span>보고 있는 폴더·브랜치·저장소가 맞는지 확인한다.</span></label><label><input type="checkbox"><span>변경 내용이 커밋되고 원격 저장소에 푸시되었는지 확인한다.</span></label><label><input type="checkbox"><span>배포 기록이 성공 상태인지 확인한다.</span></label><label><input type="checkbox"><span>배포 대상 폴더와 시작 파일 이름이 맞는지 확인한다.</span></label><label><input type="checkbox"><span>브라우저를 새로고침하고, 필요하면 캐시를 무시해 다시 불러온다.</span></label><label><input type="checkbox"><span>공개 주소와 미리보기 주소를 혼동하지 않았는지 확인한다.</span></label>
+          </div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sources">
+      <div class="wrap">
+        <div class="section-head"><div><p class="kicker">07 · Sources</p><h2>원문과 참고 자료</h2></div><p class="section-intro">누가 만든 자료인지, 어떤 내용이 보완되었는지 구분하면 자료를 안전하게 인용하고 업데이트할 수 있습니다.</p></div>
+        <div class="source-note"><h3>원문 정보 확인 필요</h3><p>이 작업 요청에는 안내서 원문 전체와 제공자·저작권·원문 날짜·보완 날짜가 실제로 포함되지 않았습니다. 따라서 해당 정보를 임의로 만들지 않았습니다. 원문을 제공받으면 이 영역에 원문 표기를 그대로 반영해야 합니다.</p></div>
+        <div class="source-grid">
+          <article class="source-box"><h3>내용 구분</h3><ul><li><strong>원문:</strong> 현재 미제공 — 제공자·저작권·날짜 확인 후 표기</li><li><strong>이번 보완:</strong> 요청에 명시된 25개 용어 구조, 쉬운 비유, 일반적인 강의 사이트 적용 예시, 실습 체크리스트</li><li>PHP·<code>stats.php</code>·JSON 운영 데이터는 특정 원본 강좌의 사례일 수 있으므로, 이 페이지의 실제 기능이라고 단정하지 않았습니다.</li></ul></article>
+          <article class="source-box"><h3>공식 참고 문서</h3><ul><li><a href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer">Git 공식 문서 ↗</a></li><li><a href="https://docs.github.com/" target="_blank" rel="noopener noreferrer">GitHub 공식 문서 ↗</a></li><li><a href="https://developer.mozilla.org/ko/docs/Learn_web_development" target="_blank" rel="noopener noreferrer">MDN 웹 개발 학습 자료 ↗</a></li><li><a href="#platforms">플랫폼별 공식 사이트·문서 보기</a></li></ul></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap"><p>이 페이지는 회원가입·로그인·데이터베이스 없이 읽을 수 있는 독립형 교육 자료입니다.</p></div></footer>
+  <button class="top-btn" id="topButton" type="button" aria-label="맨 위로 이동">↑</button>
+
+  <script>
+    const terms = [
+      {c:'basic',ko:'저장소',en:'Repository',d:'프로젝트의 코드, 이미지, 문서와 변경 기록을 모아 두는 공간입니다. 내 컴퓨터의 로컬 저장소와 GitHub 같은 원격 저장소가 있습니다.',a:'강의 자료와 수정 이력이 함께 들어 있는 ‘자료 보관함’과 같습니다.',x:'새 강좌를 만들 때 기존 저장소를 바로 덮어쓰기보다 별도 저장소나 새 폴더로 복제하면 원본을 보존할 수 있습니다.'},
+      {c:'basic',ko:'Git / GitHub',en:'Git / GitHub',d:'Git은 파일의 변경 이력을 기록하고 되돌리거나 합칠 수 있게 하는 버전 관리 도구입니다. GitHub는 Git 저장소를 인터넷에서 보관·공유·협업하는 서비스입니다.',a:'Git은 교재의 수정 이력을 적는 장부이고, GitHub는 그 장부와 교재를 보관하는 온라인 자료실입니다.',x:'강의 페이지를 수정한 뒤 Git으로 기록하고 GitHub에 올리면, 배포 서비스가 그 저장소를 읽어 사이트를 갱신하도록 연결할 수 있습니다.'},
+      {c:'basic',ko:'커밋',en:'Commit',d:'선택한 변경 사항을 설명과 함께 하나의 이력 단위로 저장하는 일입니다. 커밋은 내 컴퓨터에만 있을 수 있습니다.',a:'문서를 고친 뒤 “3강 제목 수정”이라고 적어 확정본 한 장을 이력철에 꽂는 일입니다.',x:'강좌 소개를 고친 뒤 커밋해도 공개 사이트가 자동으로 바뀐다는 뜻은 아닙니다. 원격 저장소로 푸시하고 배포가 완료되어야 합니다.'},
+      {c:'basic',ko:'배포',en:'Deployment',d:'완성한 코드와 파일을 방문자가 접속할 수 있는 서버나 플랫폼에 올려 실제 웹사이트로 공개하는 과정입니다.',a:'작성한 교재 원고를 인쇄소에 보내 학생이 받아볼 수 있는 책으로 내놓는 단계입니다.',x:'GitHub에 올린 강의 사이트를 Vercel 같은 플랫폼이 빌드해 공개 주소로 제공하는 과정이 배포입니다.'},
+      {c:'basic',ko:'호스팅',en:'Hosting',d:'웹사이트의 파일이나 프로그램을 인터넷에 연결된 서버에 두고 방문자에게 계속 전달해 주는 서비스입니다.',a:'전시물을 사람들이 언제든 볼 수 있도록 전시장 공간을 빌리는 것과 같습니다.',x:'HTML 중심의 강의 안내 페이지는 정적 호스팅으로 공개할 수 있습니다. PHP가 필요한 특정 원본 강좌라면 PHP 실행을 지원하는 호스팅인지 별도로 확인해야 합니다.'},
+      {c:'basic',ko:'PHP',en:'PHP',d:'웹 서버에서 실행되어 HTML을 만들거나 폼·파일·데이터베이스를 처리할 수 있는 서버 측 프로그래밍 언어입니다.',a:'방문자가 주문하면 뒤쪽 주방에서 요청을 처리해 결과를 내보내는 직원과 같습니다.',x:'원본 강좌가 stats.php 같은 PHP 파일을 사용한다면 PHP 실행 환경이 필요합니다. 그러나 모든 강의 사이트가 PHP를 쓰는 것은 아니며, 이 안내 페이지도 PHP 없이 작동합니다.',o:true},
+      {c:'basic',ko:'실시간 동기화',en:'Real-time synchronization',d:'한쪽에서 데이터가 바뀌면 연결된 다른 화면에도 짧은 시간 안에 변경 사항이 전달되는 방식입니다.',a:'한 사람이 공유 칠판에 쓴 내용이 다른 사람의 칠판에도 곧바로 보이는 것과 같습니다.',x:'수강 신청 현황이나 공동 게시판을 여러 화면에서 즉시 갱신할 때 사용할 수 있습니다. 실제 적용 여부는 연결된 데이터 서비스와 코드를 확인해야 합니다.'},
+      {c:'basic',ko:'Codex / 도구 연결',en:'Codex / Tool connection',d:'Codex는 코드 읽기·수정·명령 실행을 도울 수 있는 작업 도구입니다. 도구 연결은 파일, 브라우저, 외부 서비스 같은 기능에 허용된 방식으로 접근하게 하는 연결입니다.',a:'Codex는 작업을 돕는 조교이고, 도구 연결은 조교에게 건네는 자료함 열쇠나 작업 도구입니다.',x:'강의 사이트 파일을 점검하고 새 페이지를 만들 수 있지만, 실제로 연결되지 않은 배포 계정이나 데이터베이스까지 자동으로 사용할 수 있는 것은 아닙니다.'},
+      {c:'basic',ko:'트래픽 / 동시 접속',en:'Traffic / Concurrent users',d:'트래픽은 서버와 방문자 사이에 오가는 데이터의 양을 뜻합니다. 동시 접속은 같은 시점에 서비스를 이용하는 사람 수를 뜻합니다.',a:'트래픽은 도서관에서 오간 책의 총량, 동시 접속은 지금 열람실에 함께 앉아 있는 사람 수입니다.',x:'영상과 큰 이미지를 많이 제공하거나 수강생이 한꺼번에 접속하면 트래픽과 서버 부담이 커질 수 있어 호스팅 조건과 성능을 확인합니다.'},
+      {c:'making',ko:'HTML / CSS / JavaScript',en:'HTML / CSS / JavaScript',d:'HTML은 내용과 구조, CSS는 색·크기·배치 같은 모양, JavaScript는 검색·버튼·상태 변화 같은 동작을 담당하는 웹의 기본 기술입니다.',a:'HTML은 건물의 뼈대와 방, CSS는 인테리어, JavaScript는 문이 열리고 승강기가 움직이게 하는 장치입니다.',x:'강의 제목과 차시는 HTML, 읽기 편한 카드 배치는 CSS, 용어 검색과 체크리스트는 JavaScript로 구현할 수 있습니다.'},
+      {c:'making',ko:'프론트엔드 / 백엔드',en:'Front-end / Back-end',d:'프론트엔드는 방문자가 브라우저에서 보고 조작하는 부분입니다. 백엔드는 서버에서 요청을 처리하고 인증·데이터 저장 같은 일을 담당합니다.',a:'프론트엔드는 식당의 홀과 메뉴판, 백엔드는 주문을 처리하는 주방과 관리실입니다.',x:'강좌 소개 화면은 프론트엔드입니다. 회원 로그인과 수강 기록 저장이 필요하다면 보통 백엔드나 외부 서비스가 추가로 필요합니다.'},
+      {c:'making',ko:'정적 / 동적 사이트',en:'Static / Dynamic site',d:'정적 사이트는 준비된 파일을 주로 그대로 전달합니다. 동적 사이트는 이용자, 입력, 데이터에 따라 서버나 브라우저가 내용을 만들어 바꿉니다.',a:'정적 사이트는 인쇄된 안내판, 동적 사이트는 질문에 따라 다른 번호표를 주는 안내 창구입니다.',x:'모두에게 같은 강의 소개를 보여 주면 정적으로 만들 수 있습니다. 개인별 진도나 회원 전용 화면은 동적 기능이 필요할 수 있습니다.'},
+      {c:'making',ko:'복제',en:'Clone / Copy',d:'기존 저장소나 프로젝트의 파일과 이력을 가져와 별도의 작업본을 만드는 일입니다. Git의 clone은 원격 저장소를 내 컴퓨터로 내려받는 뜻으로도 쓰입니다.',a:'원본 교재는 보관하고 복사본을 만들어 새 학기용으로 고치는 일입니다.',x:'기존 강좌를 바탕으로 새 강좌를 만들 때 원본을 삭제하거나 덮어쓰지 않고 별도 폴더·저장소로 복제해 작업합니다.'},
+      {c:'making',ko:'브랜치',en:'Branch',d:'같은 저장소 안에서 기본 작업 흐름과 분리해 변경을 진행하는 독립적인 작업 줄기입니다.',a:'원본 교재는 그대로 둔 채 별도 복사본에서 개정안을 만드는 것과 같습니다.',x:'공개 중인 강의 사이트를 바로 바꾸지 않고 새 디자인 브랜치에서 수정한 뒤 검토할 수 있습니다.'},
+      {c:'making',ko:'푸시 / 풀',en:'Push / Pull',d:'푸시는 로컬 저장소의 커밋을 원격 저장소로 보내는 일이고, 풀은 원격 저장소의 새 변경을 내 작업 공간으로 가져와 합치는 일입니다.',a:'푸시는 온라인 자료실에 수정본을 올리는 것, 풀은 다른 사람이 올린 최신본을 내 컴퓨터로 받는 것입니다.',x:'강의 내용을 커밋한 뒤 푸시해야 GitHub에 반영됩니다. 여러 사람이 작업한다면 수정 전 풀로 최신 변경을 받습니다.'},
+      {c:'making',ko:'PR / 병합',en:'Pull Request / Merge',d:'PR은 한 브랜치의 변경을 검토한 뒤 다른 브랜치에 합쳐 달라고 제안하는 절차입니다. 병합은 승인된 변경 줄기를 실제로 하나로 합치는 일입니다.',a:'개정안을 제출해 교정받고, 승인된 쪽만 최종 교재에 반영하는 과정입니다.',x:'새 차시 페이지를 별도 브랜치에서 만든 뒤 PR로 확인하고 기본 브랜치에 병합해 배포할 수 있습니다.'},
+      {c:'operation',ko:'도메인 / URL',en:'Domain / URL',d:'도메인은 사람이 읽기 쉬운 사이트 이름입니다. URL은 통신 방식, 도메인, 경로 등을 포함해 인터넷의 특정 자원을 가리키는 전체 주소입니다.',a:'도메인은 건물 이름이나 도로명 주소, URL은 그 건물의 몇 층 몇 번 방까지 적은 상세 주소입니다.',x:'example.com은 도메인이고, https://example.com/course/intro는 특정 강좌 소개 페이지의 URL입니다.'},
+      {c:'operation',ko:'DNS',en:'Domain Name System',d:'도메인 이름을 실제 서버가 사용하는 IP 주소나 다른 서비스의 주소와 연결해 주는 인터넷의 이름 안내 체계입니다.',a:'사람이 말한 가게 이름을 실제 위치로 찾아 주는 전화번호부나 안내 데스크입니다.',x:'구입한 강의 사이트 도메인을 배포 플랫폼에 연결할 때 DNS 레코드를 설정합니다. 변경 반영에는 시간이 걸릴 수 있습니다.'},
+      {c:'operation',ko:'HTTPS',en:'Hypertext Transfer Protocol Secure',d:'브라우저와 웹 서버 사이의 통신을 암호화하고, 접속한 사이트의 인증서를 확인하는 방식입니다.',a:'내용이 보이지 않게 잠근 봉투에 넣고, 받는 곳의 신분도 확인해 전달하는 것과 같습니다.',x:'수강생이 강의 안내를 보는 동안 통신 내용을 보호합니다. 로그인이나 입력 폼이 있다면 더욱 중요하지만 HTTPS만으로 모든 보안이 끝나는 것은 아닙니다.'},
+      {c:'operation',ko:'API',en:'Application Programming Interface',d:'서로 다른 프로그램이 정해진 요청과 응답 형식으로 기능이나 데이터를 주고받게 하는 접점입니다.',a:'손님이 정해진 주문서로 주방에 요청하고 완성된 음식을 받는 창구입니다.',x:'강의 사이트가 외부 일정, 결제, 이메일 발송 서비스와 정보를 주고받을 때 해당 서비스의 API를 사용할 수 있습니다.'},
+      {c:'operation',ko:'데이터베이스',en:'Database',d:'정보를 일정한 구조로 저장하고 필요한 조건으로 찾고 수정할 수 있게 관리하는 시스템입니다.',a:'학생 이름, 연락처, 수강 상태를 항목별로 정리해 빠르게 찾는 전자 문서함입니다.',x:'회원, 진도, 신청 내역을 저장할 때 사용할 수 있습니다. 특정 원본 강좌가 JSON 파일에 운영 데이터를 저장했다는 사례와 일반적인 데이터베이스는 같은 뜻이 아닙니다.',o:true},
+      {c:'operation',ko:'환경변수',en:'Environment variable',d:'실행 환경마다 달라지는 설정값을 코드와 분리해 전달하는 방식입니다. API 키나 데이터베이스 주소 같은 민감한 값에 자주 사용합니다.',a:'교재 본문에 자물쇠 번호를 인쇄하지 않고 관리자만 보는 별도 설정표에 적는 방식입니다.',x:'개발용과 공개용 서비스 주소를 다르게 넣거나 비밀 키를 코드 저장소에 직접 올리지 않도록 설정합니다. 브라우저에 전달되는 값은 완전한 비밀이 될 수 없으므로 구분이 필요합니다.'},
+      {c:'operation',ko:'인증 / 권한',en:'Authentication / Authorization',d:'인증은 “누구인지” 확인하는 과정이고, 권한은 확인된 사람이 “무엇을 할 수 있는지” 결정하는 규칙입니다.',a:'인증은 신분증 확인, 권한은 교실·교무실 중 어디까지 들어갈 수 있는지 정하는 출입증입니다.',x:'수강생과 관리자가 로그인하더라도, 강의 보기·글 수정·회원 관리 권한은 서로 다르게 설정할 수 있습니다.'},
+      {c:'operation',ko:'로컬 서버',en:'Local server',d:'인터넷에 공개하지 않고 주로 내 컴퓨터에서 웹사이트를 실행해 확인하는 개발용 서버입니다.',a:'인쇄 전에 내 책상에서 교정쇄를 펼쳐 보는 것과 같습니다.',x:'파일 경로나 브라우저 제한 때문에 HTML 파일을 직접 열어서는 기능이 다를 수 있어, 로컬 서버 주소에서 메뉴·검색·스크립트를 확인합니다.'},
+      {c:'operation',ko:'캐시',en:'Cache',d:'한 번 받은 파일이나 계산 결과를 임시 저장해 다음 요청을 더 빠르게 처리하는 방식입니다.',a:'자주 보는 안내문을 매번 창고에서 찾지 않고 책상 위에 복사해 두는 것입니다.',x:'사이트를 수정했는데 예전 화면이 보이면 브라우저나 배포 서비스의 캐시가 남았는지 확인하고 새로 불러옵니다.'}
+    ];
+
+    function card(t){
+      const article=document.createElement('article');
+      article.className='term-card';
+      article.dataset.search=[t.ko,t.en,t.d,t.a,t.x].join(' ').toLowerCase();
+      article.innerHTML=`<div class="term-title"><h3>${t.ko}<span class="en">${t.en}</span></h3>${t.o?'<span class="origin-case">특정 원본 강좌와 구분</span>':''}</div><div class="term-parts"><div class="term-part"><b>정확한 뜻</b><p>${t.d}</p></div><div class="term-part analogy"><b>쉬운 비유</b><p>${t.a}</p></div><div class="term-part example"><b>강의 사이트 적용</b><p>${t.x}</p></div></div>`;
+      return article;
+    }
+    document.querySelectorAll('[data-category]').forEach(grid=>terms.filter(t=>t.c===grid.dataset.category).forEach(t=>grid.append(card(t))));
+
+    const search=document.getElementById('termSearch');
+    const meta=document.getElementById('searchMeta');
+    const noResults=document.getElementById('noResults');
+    function filterTerms(){
+      const q=search.value.trim().toLowerCase(); let shown=0;
+      document.querySelectorAll('.term-card').forEach(el=>{const hit=!q||el.dataset.search.includes(q);el.hidden=!hit;if(hit)shown++;});
+      meta.textContent=`${shown}개 표시`;noResults.style.display=shown?'none':'block';
+    }
+    search.addEventListener('input',filterTerms);
+    document.getElementById('printButton').addEventListener('click',()=>{
+      if(typeof window.print==='function') window.print();
+    });
+
+    document.querySelectorAll('[data-checklist]').forEach(group=>{
+      const key='it-glossary-check-'+group.dataset.checklist;
+      let saved=[];try{saved=JSON.parse(localStorage.getItem(key)||'[]')}catch(e){saved=[]}
+      group.querySelectorAll('input').forEach((box,i)=>{box.checked=Boolean(saved[i]);box.addEventListener('change',()=>{const state=[...group.querySelectorAll('input')].map(v=>v.checked);try{localStorage.setItem(key,JSON.stringify(state))}catch(e){}})});
+    });
+    const topButton=document.getElementById('topButton');
+    window.addEventListener('scroll',()=>topButton.classList.toggle('show',window.scrollY>600),{passive:true});
+    topButton.addEventListener('click',()=>window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));
+  </script>
+</body>
+</html>
