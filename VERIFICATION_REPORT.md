@@ -28,6 +28,9 @@
 - 프로젝트: `it-glossary`
 - 프로덕션 별칭: https://it-glossary-iota.vercel.app
 - 배포 상태: `READY`
-- 배포 ID: `dpl_8c78D9RfapXtAGwDaKdrJPbkR9nm`
+- 최종 배포 ID: `dpl_5n8zRz8vnjWbBNSpgyLr9CQBf9aT`
+- 루트 주소 HTTP 상태: `200`
+- `/it-glossary` 주소 HTTP 상태: `200`
+- 공개 페이지 제목·히어로 문구·검색 입력·플랫폼 섹션 확인 완료
 
-공개 HTTP 응답과 실제 페이지 내용은 배포 후 별도로 다시 확인합니다.
+최종 공개 주소의 실제 응답과 핵심 콘텐츠를 배포 후 다시 확인했습니다.
